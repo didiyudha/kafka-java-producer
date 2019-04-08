@@ -16,7 +16,7 @@ public class ConsumerDemoGroups {
         Logger logger = LoggerFactory.getLogger(ConsumerDemoGroups.class);
 
         String bootstrapServers = "127.0.0.1:9092";
-        String groupId = "my-forth-application";
+        String groupId = "my-fifth-application";
         String offsetConfig = "earliest";
         String topic = "first_topic";
 
