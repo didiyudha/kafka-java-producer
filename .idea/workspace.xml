@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="878be604-8102-454a-90c1-c7fca1e06632" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoWithThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoGroups.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,20 +17,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ConsumerDemoGroups.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoGroups.java">
+      <file leaf-file-name="ConsumerDemoWithThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoWithThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProducerDemoKeys.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ProducerDemoKeys.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="291">
+              <caret line="61" column="50" lean-forward="true" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+              <folding>
+                <element signature="e#608#609#0" expanded="true" />
+                <element signature="e#655#656#0" expanded="true" />
+                <element signature="e#661#662#0" expanded="true" />
+                <element signature="e#687#688#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,6 +60,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ProducerDemoKeys.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoGroups.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoWithThread.java" />
       </list>
     </option>
   </component>
@@ -156,7 +155,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ProducerDemoKeys">
+  <component name="RunManager" selected="Application.ConsumerDemoWithThread">
     <configuration name="ConsumerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.github.didiyudha.kafka.tutorial1.ConsumerDemo" />
       <module name="kafkaplayground" />
@@ -179,8 +178,8 @@
         </pattern>
       </extension>
     </configuration>
-    <configuration name="ProducerDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.github.didiyudha.kafka.tutorial1.ProducerDemo" />
+    <configuration name="ConsumerDemoWithThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.github.didiyudha.kafka.tutorial1.ConsumerDemoWithThread" />
       <module name="kafkaplayground" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -254,19 +253,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.ProducerDemo" />
       <item itemvalue="Application.ProducerDemoWithCallback" />
       <item itemvalue="Application.ProducerDemoKeys" />
       <item itemvalue="Application.ConsumerDemo" />
       <item itemvalue="Application.ConsumerDemoGroups" />
+      <item itemvalue="Application.ConsumerDemoWithThread" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ConsumerDemoWithThread" />
         <item itemvalue="Application.ProducerDemoKeys" />
         <item itemvalue="Application.ConsumerDemoGroups" />
         <item itemvalue="Application.ConsumerDemo" />
         <item itemvalue="Application.ProducerDemoWithCallback" />
-        <item itemvalue="Application.ProducerDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -368,17 +367,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoGroups.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ProducerDemoKeys.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+        <state relative-caret-position="260">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ProducerDemoKeys.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoGroups.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="33" column="38" lean-forward="true" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        <state relative-caret-position="117">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/didiyudha/kafka/tutorial1/ConsumerDemoWithThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="61" column="50" lean-forward="true" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+          <folding>
+            <element signature="e#608#609#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
+            <element signature="e#687#688#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
