@@ -10,10 +10,13 @@ import com.twitter.hbc.core.endpoint.StatusesFilterEndpoint;
 import com.twitter.hbc.core.processor.StringDelimitedProcessor;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
+import org.apache.kafka.clients.producer.*;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -26,12 +29,14 @@ public class TwitterProducer {
     private String consumerSecret;
     private String token;
     private String secret;
+    private List<String> terms = Lists.newArrayList("kafka");
 
     public TwitterProducer() {
         this.consumerKey = "XnjzSwz7MEyL7lGjlLM5XWnjN";
         this.consumerSecret = "E5lneV721pyGpAaMzBH7xNOxGn7ZMlIsG3e1cheTEP5qjOwfao";
         this.token = "190505732-VkGau0qSN9fWrmiVPaMrKMrHWhxLV6SY6r2vUYod";
         this.secret = "JftrYybiqbJD98fGQaThoSarRgqLWUiQcXzliRLsSxovz";
+
     }
 
     public static void main(String[] args) {
@@ -46,6 +51,15 @@ public class TwitterProducer {
         hosebirdClient.connect();
 
         // create kafka producer.
+        KafkaProducer<String, String> producer = createKafkaProducer();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(()-> {
+            logger.info("stopping application");
+            logger.info("shutting down client from twitter...");
+            hosebirdClient.stop();
+            logger.info("closing producer...");
+            producer.close();
+        }));
 
         // loop to send tweets to kafka.
         // on a different thread, or multiple different threads....
@@ -59,6 +73,14 @@ public class TwitterProducer {
             }
             if (msg != null) {
                 logger.info(msg);
+                ProducerRecord<String, String> record = new ProducerRecord<>("twitter_tweets", null, msg);
+                producer.send(record, new Callback() {
+                    @Override
+                    public void onCompletion(RecordMetadata recordMetadata, Exception e) {
+                        if (e != null) {
+                            logger.error("something bad happened", e);
+                        }                    }
+                });
             }
         }
 
@@ -74,7 +96,7 @@ public class TwitterProducer {
         StatusesFilterEndpoint hosebirdEndpoint = new StatusesFilterEndpoint();
 
 
-        List<String> terms = Lists.newArrayList("bitcoin");
+
         hosebirdEndpoint.trackTerms(terms);
 
         // These secrets should be read from a config file
@@ -89,5 +111,21 @@ public class TwitterProducer {
                 //.eventMessageQueue(eventQueue);
 
         return builder.build();
+    }
+
+    public KafkaProducer<String, String> createKafkaProducer() {
+        // Create producer properties.
+        Properties properties = new Properties();
+        String bootstrapServers = "127.0.0.1:9092";
+        String acks = "all";
+
+        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.setProperty(ProducerConfig.ACKS_CONFIG, acks);
+
+        // Create the producer.
+        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
+        return producer;
     }
 }
